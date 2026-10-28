@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microinteracciones - Confirmación</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe0ef, #f8c4e2, #e6d7ff);
+            color: #45213f;
+            margin: 0;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(100deg, #b51763, #e83385, #a52cc2);
+            padding: 20px;
+            box-shadow: 0 5px 18px #78134b66;
+        }
+
+        header a {
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-decoration: none;
+            text-shadow: 2px 2px #7e164d;
+        }
+
+        main {
+            box-sizing: border-box;
+            margin: 28px auto;
+            padding: 28px 20px;
+            width: 80%;
+            background: linear-gradient(120deg, #fff, #ffeaf4);
+            border-radius: 22px;
+            box-shadow: 0 10px 24px #74235544;
+        }
+
+        h1, h2 {
+            color: #a82965;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        /* CAJA ANIMADA */
+        .caja {
+            box-sizing: content-box;
+            width: 100px;
+            height: 100px;
+            background-color: #e94e91;
+            color: white;
+            margin: 55px auto;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px dotted white;
+            border-radius: 20px;
+            box-shadow: 0 8px 18px #821d5570;
+            animation: combinadaAnim 3s infinite ease-in-out;
+        }
+
+        @keyframes combinadaAnim {
+            0% {
+                transform: translateX(-100px) scale(1) rotate(0deg);
+                background-color: #e94e91;
+            }
+
+            50% {
+                transform: translateX(100px) scale(1.3) rotate(180deg);
+                background-color: #a829b5;
+            }
+
+            100% {
+                transform: translateX(-100px) scale(1) rotate(360deg);
+                background-color: #e94e91;
+            }
+        }
+
+        /* IMAGEN QUE AUMENTA DE TAMAÑO */
+        .imagen-escala {
+            width: 100px;
+            max-width: 100%;
+            height: auto;
+            margin: 40px auto 20px;
+            display: block;
+            animation: escalarAnim 3s infinite ease-in-out;
+        }
+
+        .contenedor-lateral {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px auto;
+        }
+
+        .imagen-lateral {
+            width: 150px;
+            max-width: 100%;
+            height: auto;
+            animation: escalarAnim 3s infinite ease-in-out;
+        }
+
+        .imagen-lateral:nth-of-type(1) {
+            animation-delay: 0s;
+        }
+
+        .imagen-lateral:nth-of-type(2) {
+            animation-delay: 1s;
+        }
+
+        .imagen-lateral:nth-of-type(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes escalarAnim {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+        }
+
+        /* INTERRUPTOR */
+        .mover {
+            width: 120px;
+            height: 60px;
+            box-sizing: content-box;
+            background-color: gray;
+            margin: 30px auto;
+            border-radius: 30px;
+            position: relative;
+            padding: 10px;
+            animation: moverAnim 6s infinite ease-in-out;
+        }
+
+        .boton {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            animation: moverboton 6s infinite ease-in-out;
+        }
+
+        @keyframes moverboton {
+            0%, 100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(70px);
+            }
+        }
+
+        @keyframes moverAnim {
+            0%, 100% {
+                background-color: gray;
+            }
+
+            50% {
+                background-color: blue;
+            }
+        }
+
+        /* ENGRANAJE GIRATORIO */
+        .rotar {
+            margin: 30px auto;
+        }
+
+        .engranaje {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            animation: rotarAnim 10s infinite linear;
+        }
+
+        @keyframes rotarAnim {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* CORAZÓN QUE CAMBIA DE COLOR */
+        .fondo {
+            width: 140px;
+            height: 140px;
+            margin: 30px auto;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: colorAnim 5s infinite ease-in-out;
+        }
+
+        .corazon {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        @keyframes colorAnim {
+            0%, 100% {
+                background-color: red;
+            }
+
+            50% {
+                background-color: white;
+            }
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background: linear-gradient(100deg, #74164d, #a52c78, #692582);
+            margin-top: 30px;
+            padding: 20px;
+            box-shadow: 0 -5px 18px #78134b44;
+        }
+
+        footer a {
+            color: #ffe18c;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                width: 92%;
+                padding: 24px 14px;
+            }
+
+            .imagen-lateral {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Microinteracciones</a>
+    </header>
+
+    <main>
+        <h1>Confirmación de envío</h1>
+
+        <p>
+            Después de enviar un formulario, una microinteracción puede
+            confirmar que la acción se completó.
+        </p>
+
+        <div class="caja">¡Listo!</div>
+
+        <p>
+            El movimiento, el aumento de tamaño, el giro y el cambio de color
+            hacen visible la respuesta del sistema.
+        </p>
+
+        <h2>Animación de imágenes</h2>
+
+        <p>Las imágenes aumentan de tamaño para llamar la atención del usuario.</p>
+
+        <img
+            src="Img/micro1.png"
+            alt="Imagen con animación de escala"
+            class="imagen-escala"
+        >
+
+        <div class="contenedor-lateral">
+            <img src="Img/micro2.png" alt="Ejemplo animado 1" class="imagen-lateral">
+            <img src="Img/micro3.png" alt="Ejemplo animado 2" class="imagen-lateral">
+            <img src="Img/micro4.png" alt="Ejemplo animado 3" class="imagen-lateral">
+        </div>
+
+        <h2>Interruptor animado</h2>
+
+        <p>El interruptor se desplaza y cambia de color para representar un cambio de estado.</p>
+
+        <div class="mover">
+            <div class="boton"></div>
+        </div>
+
+        <h2>Engranaje giratorio</h2>
+
+        <p>El movimiento giratorio puede representar una tarea en proceso.</p>
+
+        <div class="rotar">
+            <img src="Img/engranaje.png" alt="Engranaje girando" class="engranaje">
+        </div>
+
+        <h2>Cambio de color</h2>
+
+        <p>El fondo cambia de color para llamar la atención sobre el corazón.</p>
+
+        <div class="fondo">
+            <img src="Img/corazon.png" alt="Corazón" class="corazon">
+        </div>
+    </main>
+
+    <footer>
+        <a href="index.html">Volver a microinteracciones</a>
+    </footer>
+</body>
+</html>
